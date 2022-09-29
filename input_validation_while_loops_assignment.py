@@ -37,18 +37,48 @@ Submit you .py file.
 '''
 
 the_list = []
-sentinel = 666
-yrNum = int(input('Enter number between 1-100 (enter 666 to stop): '))
-while (yrNum != sentinel):
-    while yrNum < 1 or yrNum > 100:
+range1 = range(1, 101)
+sentinel = "continue"
+yrNum = 0
+
+sentinel = (input('Enter exit to quit: '))
+
+while (sentinel != "exit"):
+    yrNum = 0
+    while (yrNum not in range1):
         try:
-             yrNum = int(input('Enter number between 1-100 (enter 666 to stop): '))
+            yrNum = int(input('Enter an integer between 1-100: '))
         except:
-            print('Evil input!')
+            print('Bad input!')
+    print('Thank you.')
     the_list.append(yrNum)
-    yrNum = int(input('Enter number between 1-100 (enter 666 to stop): '))
+    sentinel = (input('Enter exit to quit: '))
 
 for x in range(len(the_list)):
     print(the_list[x])
 
 
+#
+#Enter exit to quit: g                #  Enter exit to quit: jkl;
+#Enter an integer between 1-100: 75   #  Enter an integer between 1-100: 10
+#Thank you.                           #  Thank you.
+#Enter exit to quit: 200              #  Enter exit to quit: jh
+#Enter an integer between 1-100: 500  #  Enter an integer between 1-100: 11
+#Enter an integer between 1-100: 700  #  Thank you.
+#Enter an integer between 1-100: 10   #  Enter exit to quit: kkm
+#Thank you.                           #  Enter an integer between 1-100: 12
+#Enter exit to quit: exit             #  Thank you.
+#50                                   #  Enter an integer between 1-100: 13
+#75                                   #  Thank you.
+#10                                   #  Enter exit to quit: jk
+#                                     #  Enter an integer between 1-100: 105
+#Process finished with exit code 0    #   Enter an integer between 1-100: 15
+#                                     #   Thank you.
+#                                     #  Enter exit to quit: exit
+#                                     #  10
+#                                     #  11
+#                                     #  12
+#                                     #  13
+#                                     #  15
+#
+#
